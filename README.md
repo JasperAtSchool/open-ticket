@@ -17,7 +17,7 @@
 <p align="center">
 Open Ticket is the most <b>advanced and customizable</b> Discord ticket bot available. With <b>350+ configurable settings</b>, you have full control over every aspect of your ticket system!
 From <code>HTML transcripts</code> and <code>Advanced Plugins</code> to <code>Claiming & Pinning</code>, <code>Questions & Modals</code>, <code>Detailed Statistics</code>, and much more.<br><br>
-The bot is fully translated into <b>36+ languages</b> and has been battle-tested in large Discord servers.<br>
+The bot is fully translated into <b>37+ languages</b> and has been battle-tested in large Discord servers.<br>
 Need help or want to get involved? Feel free to join our <a href="https://discord.dj-dj.be"><b>Discord server</b></a>.
 </p>
 
@@ -37,7 +37,7 @@ Need help or want to get involved? Feel free to join our <a href="https://discor
 - **📈 Scalable** - Made to handle huge servers and has already been **tested in servers with 100k members.**
 - **📄 HTML Transcripts** - The **built-in HTML Transcripts Service** provides beautiful & easy-to-use transcripts.
 - **✅ Ticket Status** - Close, reopen, delete, claim, pin, rename or move tickets in your server.
-- **🇬🇧 Translation** - Every message has been translated in more than **36 languages** by our community.
+- **🇬🇧 Translation** - Every message has been translated in more than **37 languages** by our community.
 - **🎨 Customisation** - More than **200+ settings** are related to customisation & advanced features.
 - **🖥️ Interactions** - The bot has full support for buttons, dropdowns, slash/text commands & modals.
 - **∞ Unlimited Possibilities** - Create an infinite amount of tickets, questions & panels.
@@ -134,14 +134,14 @@ A list of amazing people who have contributed or provided supported for **Open T
 </table>
 
 ### 💬 Translators
-With the amazing support of our translators, we've been able to translate Open Ticket in more than **36 languages**!
+With the amazing support of our translators, we've been able to translate Open Ticket in more than **37 languages**!
 #### Categories:
 - **🟢 Available**
 - **🤖 Partially Made Using AI**
 - **🟠 Incomplete**
 - **🔴 Unavailable/Outdated**
 
-|🔍  |Languages (36)        |Maintainer (Github/Discord)    |
+|🔍  |Languages (37)        |Maintainer (Github/Discord)    |
 |----|---------------------|--------------------------------|
 |🟢   |🇬🇧 English            |djj123dj                       |
 |🟢   |🇳🇱 Dutch              |djj123dj                       |
@@ -167,6 +167,7 @@ With the amazing support of our translators, we've been able to translate Open T
 |🟢   |🇮🇷 Persian            |dysashop & zhavis              |
 |🟢   |🇧🇩 Bengali            |HanumeshGupta                  |
 |🟢   |❓ Catalan            |guillee3                       |
+|🟢   |🇨🇳 Traditional Chinese|me.october                     |
 |🤖   |🇪🇪 Estonian           |iamnotmega                     |
 |🤖   |🇫🇮 Finnish            |iamnotmega                     |
 |🤖   |🇯🇵 Japanese           |HanumeshGupta                  |
@@ -179,7 +180,6 @@ With the amazing support of our translators, we've been able to translate Open T
 |🤖   |🇷🇺 Russian            |NoOneNook                      |
 |🤖   |🇱🇻 Latvian            |NoOneNook                      |
 |🤖   |🇻🇳 Vietnamese         |ngocdiep2006                   |
-|🔴   |🇨🇳 Traditional Chinese|[⭐ Contribute!](.github/CONTRIBUTING.md)|
 <!--[⭐ Contribute!](.github/CONTRIBUTING.md) -->
 
 ## ⭐️ Star History
