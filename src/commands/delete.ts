@@ -86,7 +86,7 @@ export const registerButtonResponders = async () => {
     opendiscord.responders.buttons.add(new api.ODButtonResponder("opendiscord:delete-ticket",/^od:delete-ticket/))
     opendiscord.responders.buttons.get("opendiscord:delete-ticket").workers.add(
         new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
-            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:delete-ticket"]["source"],"slash"|"text"|"autodelete"|"clear">
+            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"],"slash"|"text"|"autodelete"|"clear">
             
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-ticket-message").activate(instance)
             else if (originalSource == "close-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-close-message").activate(instance)
@@ -115,7 +115,7 @@ export const registerModalResponders = async () => {
                 return
             }
 
-            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIds_Default["opendiscord:delete-ticket"]["source"],"slash"|"text"|"autodelete"|"clear">
+            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"],"slash"|"text"|"autodelete"|"clear">
             const reason = instance.values.getTextField("reason",true)
 
             //delete with reason

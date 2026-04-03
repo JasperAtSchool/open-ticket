@@ -7,7 +7,7 @@ import * as discord from "discord.js"
 const generalConfig = opendiscord.configs.get("opendiscord:general")
 const lang = opendiscord.languages
 
-async function checkTicketCreationPerms(instance:api.ODButtonResponderInstance|api.ODDropdownResponderInstance|api.ODModalResponderInstance|api.ODCommandResponderInstance,source:api.ODActionManagerIds_Default["opendiscord:create-ticket-permissions"]["source"],guild:discord.Guild,user:discord.User,option:api.ODTicketOption){
+async function checkTicketCreationPerms(instance:api.ODButtonResponderInstance|api.ODDropdownResponderInstance|api.ODModalResponderInstance|api.ODCommandResponderInstance,source:api.ODActionManagerIdMappings["opendiscord:create-ticket-permissions"]["source"],guild:discord.Guild,user:discord.User,option:api.ODTicketOption){
     //check ticket permissions
     const permsRes = await opendiscord.actions.get("opendiscord:create-ticket-permissions").run(source,{guild,user,option})
     if (!permsRes.valid && instance.channel){

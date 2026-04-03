@@ -26,7 +26,7 @@
     "license": "GPL-3.0-only",
     "dependencies": {
         "@discordjs/rest": "^2.6.1",
-        "@open-discord-bots/framework": "^0.2.8",
+        "@open-discord-bots/framework": "^0.2.11",
         "@types/node": "^22.5.0",
         "@types/terminal-kit": "^2.5.7",
         "ansis": "^4.2.0",
@@ -46,7 +46,7 @@
     "homepage": "https://openticket.dj-dj.be",
     "imports": {
         "#opendiscord": "./dist/src/index.js",
-        "#opendiscord-types": "./dist/src/core/api/api.js"
+        "#opendiscord-types": "./dist/src/core/api.js"
     },
     "funding": {
         "type": "individual",

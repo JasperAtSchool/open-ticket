@@ -102,7 +102,7 @@ export const registerButtonResponders = async () => {
     opendiscord.responders.buttons.add(new api.ODButtonResponder("opendiscord:pin-ticket",/^od:pin-ticket/))
     opendiscord.responders.buttons.get("opendiscord:pin-ticket").workers.add(
         new api.ODWorker("opendiscord:pin-ticket",0,async (instance,params,source,cancel) => {
-            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:pin-ticket"]["source"],"slash"|"text">
+            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIdMappings["opendiscord:pin-ticket"]["source"],"slash"|"text">
 
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:pin-ticket-ticket-message").activate(instance)
             else if (originalSource == "unpin-message") await opendiscord.verifybars.get("opendiscord:pin-ticket-unpin-message").activate(instance)
@@ -129,7 +129,7 @@ export const registerModalResponders = async () => {
                 return
             }
 
-            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIds_Default["opendiscord:pin-ticket"]["source"],"slash"|"text">
+            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIdMappings["opendiscord:pin-ticket"]["source"],"slash"|"text">
             const reason = instance.values.getTextField("reason",true)
 
             //pin with reason

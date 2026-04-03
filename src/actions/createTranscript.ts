@@ -33,6 +33,11 @@ export const registerActions = async () => {
             const {channel,user,ticket} = params
             if (channel.type != discord.ChannelType.GuildText) return cancel()
             if (!transcriptConfig.data.general.enabled) return cancel()
+            if (!instance.compiler){
+                instance.success = false
+                cancel()
+                throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:init-transcript) => Instance is missing transcript compiler!")
+            }
             
             //run transcript compiler init()
             await opendiscord.events.get("onTranscriptInit").emit([opendiscord.transcripts,ticket,channel,user])
@@ -71,6 +76,11 @@ export const registerActions = async () => {
                 cancel()
                 throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:compile-transcript) => Instance is missing transcript compiler!")
             }
+            if (typeof instance.initData == "undefined"){
+               instance.success = false
+                cancel()
+                throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:compile-transcript) => Instance is missing transcript initData!") 
+            }
 
             //run transcript compiler compile()
             await opendiscord.events.get("onTranscriptCompile").emit([opendiscord.transcripts,ticket,channel,user])
@@ -94,14 +104,30 @@ export const registerActions = async () => {
             await opendiscord.events.get("afterTranscriptCompiled").emit([opendiscord.transcripts,ticket,channel,user])
         }),
         new api.ODWorker("opendiscord:ready-transcript",1,async (instance,params,source,cancel) => {
+            if (!instance.compiler){
+                instance.success = false
+                cancel()
+                throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:ready-transcript) => Instance is missing transcript compiler! (1)")
+            }
             if (!instance.result){
                 instance.success = false
                 cancel()
-                throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:ready-transcript) => Instance is missing transcript result!")
+                throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:ready-transcript) => Instance is missing transcript result! (1)")
             }
 
             //run transcript compiler ready()
             utilities.runAsync(async () => {
+                if (!instance.compiler){
+                    instance.success = false
+                    cancel()
+                    throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:ready-transcript) => Instance is missing transcript compiler! (2)")
+                }
+                if (!instance.result){
+                    instance.success = false
+                    cancel()
+                    throw new api.ODSystemError("ODAction(ot:create-transcript):ODWorker(ot:ready-transcript) => Instance is missing transcript result! (2)")
+                }
+
                 await opendiscord.events.get("onTranscriptReady").emit([opendiscord.transcripts,instance.result.ticket,instance.result.channel,instance.result.user])
                 if (instance.compiler.ready){
                     try{
@@ -162,7 +188,7 @@ export const registerActions = async () => {
                 {key:"channelid",value:channel.id,hidden:true},
                 {key:"option",value:ticket.option.id.value},
                 {key:"method",value:source,hidden:true},
-                {key:"compiler",value:instance.compiler.id.value},
+                {key:"compiler",value:instance.compiler?.id.value ?? "<unknown-compiler>"},
             ])
         })
     ])

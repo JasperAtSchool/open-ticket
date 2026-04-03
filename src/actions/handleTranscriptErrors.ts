@@ -9,47 +9,25 @@ export const registerButtonResponders = async () => {
     //TRANSCRIPT ERROR RETRY
     opendiscord.responders.buttons.add(new api.ODButtonResponder("opendiscord:transcript-error-retry",/^od:transcript-error-retry_([^_]+)/))
     opendiscord.responders.buttons.get("opendiscord:transcript-error-retry").workers.add([
-        new api.ODWorker("opendiscord:permissions",1,async (instance,params,source,cancel) => {
-            const permissionMode = generalConfig.data.system.permissions.delete
-
-            if (permissionMode == "none"){
-                //no permissions
-                instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-no-permissions").build("button",{guild:instance.guild,channel:instance.channel,user:instance.user,permissions:[]}))
-                return cancel()
-            }else if (permissionMode == "everyone") return
-            else if (permissionMode == "admin"){
-                if (!opendiscord.permissions.hasPermissions("support",await opendiscord.permissions.getPermissions(instance.user,instance.channel,instance.guild))){
-                    //no permissions
-                    instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-no-permissions").build("button",{guild:instance.guild,channel:instance.channel,user:instance.user,permissions:["support"]}))
-                    return cancel()
-                }else return
-            }else{
-                if (!instance.guild || !instance.member){
-                    //error
-                    instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error").build("button",{guild:instance.guild,channel:instance.channel,user:instance.user,error:"Permission Error: Not in Server #1",layout:"advanced"}))
-                    return cancel()
-                }
-                const role = await opendiscord.client.fetchGuildRole(instance.guild,permissionMode)
-                if (!role){
-                    //error
-                    instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error").build("button",{guild:instance.guild,channel:instance.channel,user:instance.user,error:"Permission Error: Not in Server #2",layout:"advanced"}))
-                    return cancel()
-                }
-                if (!role.members.has(instance.member.id)){
-                    //no permissions
-                    instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-no-permissions").build("button",{guild:instance.guild,channel:instance.channel,user:instance.user,permissions:[]}))
-                    return cancel()
-                }else return
-            }
-        }),
         new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
-            const {guild,channel,user} = instance
-            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIds_Default["opendiscord:delete-ticket"]["source"]
+            const {guild,channel,user,member} = instance
+            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"]
             
+            //check permissions
+            const permsResult = await opendiscord.permissions.checkCommandPerms(generalConfig.data.system.permissions.delete,"support",user,member,channel,guild)
+            if (!permsResult.hasPerms){
+                if (permsResult.reason == "not-in-server") await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-not-in-guild").build("button",{channel,user}))
+                else await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-no-permissions").build(source,{guild,channel,user,permissions:["support"]}))
+                return cancel()
+            }
+
+            //check is in guild/server
             if (!guild){
                 instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-not-in-guild").build("button",{channel,user}))
                 return cancel()
             }
+
+            //check if ticket exists
             const ticket = opendiscord.tickets.get(channel.id)
             if (!ticket || channel.isDMBased()){
                 instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-ticket-unknown").build("button",{guild,channel,user}))
@@ -121,7 +99,7 @@ export const registerButtonResponders = async () => {
         }),
         new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
             const {guild,channel,user} = instance
-            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIds_Default["opendiscord:delete-ticket"]["source"]
+            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"]
             
             if (!guild){
                 instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-not-in-guild").build("button",{channel,user}))

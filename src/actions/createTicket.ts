@@ -229,6 +229,8 @@ export const registerActions = async () => {
             const {guild,user,answers,option} = params
             const {ticket,channel} = instance
 
+            if (!ticket || !channel) return opendiscord.log("Ticket Creation Error: Unable to send ticket message. Previous worker failed!","error")
+
             //to logs
             if (generalConfig.data.system.logs.enabled && generalConfig.data.system.messages.creation.logs){
                 const logChannel = opendiscord.posts.get("opendiscord:logs")

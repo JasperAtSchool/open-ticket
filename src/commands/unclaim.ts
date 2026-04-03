@@ -69,7 +69,7 @@ export const registerButtonResponders = async () => {
     opendiscord.responders.buttons.add(new api.ODButtonResponder("opendiscord:unclaim-ticket",/^od:unclaim-ticket/))
     opendiscord.responders.buttons.get("opendiscord:unclaim-ticket").workers.add(
         new api.ODWorker("opendiscord:unclaim-ticket",0,async (instance,params,source,cancel) => {
-            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:unclaim-ticket"]["source"],"slash"|"text">
+            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIdMappings["opendiscord:unclaim-ticket"]["source"],"slash"|"text">
             
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:unclaim-ticket-ticket-message").activate(instance)
             else if (originalSource == "claim-message") await opendiscord.verifybars.get("opendiscord:unclaim-ticket-claim-message").activate(instance)
@@ -96,7 +96,7 @@ export const registerModalResponders = async () => {
                 return
             }
 
-            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIds_Default["opendiscord:unclaim-ticket"]["source"],"slash"|"text">
+            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIdMappings["opendiscord:unclaim-ticket"]["source"],"slash"|"text">
             const reason = instance.values.getTextField("reason",true)
 
             //unclaim with reason
