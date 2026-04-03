@@ -30,8 +30,8 @@ export const registerActions = async () => {
             ticket.get("opendiscord:busy").value = true
 
             //update stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-closed",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:tickets-closed",user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-closed",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:tickets-closed",user.id,1,"increase")
 
             //update category
             if (typeof params.allowCategoryChange == "boolean" ? params.allowCategoryChange : true){

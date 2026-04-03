@@ -51,8 +51,8 @@ export const registerCommandResponders = async () => {
                 ])
 
                 //manage stats
-                await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:users-blacklisted",1,"increase")
-                await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:users-blacklisted",user.id,1,"increase")
+                await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:users-blacklisted",1,"increase")
+                await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:users-blacklisted",user.id,1,"increase")
 
                 await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:blacklist-add").build(source,{guild,channel,user,data,reason}))
 

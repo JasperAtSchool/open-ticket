@@ -387,7 +387,7 @@ const statsEmbeds = () => {
         new api.ODWorker("opendiscord:stats-global",0,async (instance,params) => {
             const {guild,channel,user} = params
             
-            const scope = opendiscord.stats.get("opendiscord:global")
+            const scope = opendiscord.statistics.get("opendiscord:global")
             if (!scope) return
             const data = await scope.render("GLOBAL",guild,channel,user)
             
@@ -397,7 +397,7 @@ const statsEmbeds = () => {
             
             if (opendiscord.permissions.hasPermissions("owner",await opendiscord.permissions.getPermissions(user,channel,guild))){
                 //show system data when owner or developer
-                const systemScope = opendiscord.stats.get("opendiscord:system")
+                const systemScope = opendiscord.statistics.get("opendiscord:system")
                 if (!systemScope) return
                 const systemData = await systemScope.render("GLOBAL",guild,channel,user)
                 instance.addFields({name:systemScope.name,value:systemData,inline:false})
@@ -411,9 +411,9 @@ const statsEmbeds = () => {
         new api.ODWorker("opendiscord:stats-ticket",0,async (instance,params) => {
             const {guild,channel,user,scopeData} = params
             
-            const scope = opendiscord.stats.get("opendiscord:ticket")
-            const participantsScope = opendiscord.stats.get("opendiscord:participants")
-            const messagesScope = opendiscord.stats.get("opendiscord:messages")
+            const scope = opendiscord.statistics.get("opendiscord:ticket")
+            const participantsScope = opendiscord.statistics.get("opendiscord:participants")
+            const messagesScope = opendiscord.statistics.get("opendiscord:messages")
             if (!scope || !participantsScope || !messagesScope) return
             const data = await scope.render(scopeData.id.value,guild,channel,user)
             const participantsData = await participantsScope.render(scopeData.id.value,guild,channel,user)
@@ -433,7 +433,7 @@ const statsEmbeds = () => {
         new api.ODWorker("opendiscord:stats-user",0,async (instance,params) => {
             const {guild,channel,user,scopeData} = params
             
-            const scope = opendiscord.stats.get("opendiscord:user")
+            const scope = opendiscord.statistics.get("opendiscord:user")
             if (!scope) return
             const data = await scope.render(scopeData.id,guild,channel,user)
             

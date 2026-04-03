@@ -149,8 +149,8 @@ export const registerActions = async () => {
             })
 
             //update stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:transcripts-created",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:transcripts-created",params.user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:transcripts-created",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:transcripts-created",params.user.id,1,"increase")
             await opendiscord.events.get("afterTranscriptCreated").emit([opendiscord.transcripts,instance.result.ticket,instance.result.channel,instance.result.user])
         }),
         new api.ODWorker("opendiscord:logs",0,(instance,params,source,cancel) => {

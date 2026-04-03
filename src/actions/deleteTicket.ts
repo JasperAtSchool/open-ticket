@@ -59,8 +59,8 @@ export const registerActions = async () => {
             }
 
             //update stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-deleted",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:tickets-deleted",user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-deleted",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:tickets-deleted",user.id,1,"increase")
 
             //delete ticket from manager
             opendiscord.tickets.remove(ticket.id)

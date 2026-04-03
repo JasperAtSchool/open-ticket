@@ -33,8 +33,8 @@ export const registerActions = async () => {
             }
 
             //update stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-transferred",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:tickets-transferred",user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-transferred",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:tickets-transferred",user.id,1,"increase")
 
             //get new channel properties
             const channelPrefix = ticket.option.get("opendiscord:channel-prefix").value

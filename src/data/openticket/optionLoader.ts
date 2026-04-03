@@ -54,7 +54,7 @@ export const loadAllOptions = async () => {
     })
 }
 
-export const loadTicketOption = (option:api.ODJsonConfig_DefaultOptionTicketType): api.ODTicketOption => {
+export const loadTicketOption = (option:api.ODOptionsJsonConfig_TicketOption): api.ODTicketOption => {
     return new api.ODTicketOption(option.id,[
         new api.ODOptionData("opendiscord:name",option.name),
         new api.ODOptionData("opendiscord:description",option.description),
@@ -107,7 +107,7 @@ export const loadTicketOption = (option:api.ODJsonConfig_DefaultOptionTicketType
     ])
 }
 
-export const loadWebsiteOption = (opt:api.ODJsonConfig_DefaultOptionWebsiteType): api.ODWebsiteOption => {
+export const loadWebsiteOption = (opt:api.ODOptionsJsonConfig_WebsiteOption): api.ODWebsiteOption => {
     return new api.ODWebsiteOption(opt.id,[
         new api.ODOptionData("opendiscord:name",opt.name),
         new api.ODOptionData("opendiscord:description",opt.description),
@@ -119,7 +119,7 @@ export const loadWebsiteOption = (opt:api.ODJsonConfig_DefaultOptionWebsiteType)
     ])
 }
 
-export const loadRoleOption = (opt:api.ODJsonConfig_DefaultOptionRoleType): api.ODRoleOption => {
+export const loadRoleOption = (opt:api.ODOptionsJsonConfig_RoleOption): api.ODRoleOption => {
     return new api.ODRoleOption(opt.id,[
         new api.ODOptionData("opendiscord:name",opt.name),
         new api.ODOptionData("opendiscord:description",opt.description),

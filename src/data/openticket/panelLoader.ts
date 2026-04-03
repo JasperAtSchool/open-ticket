@@ -23,7 +23,7 @@ export const loadAllPanels = async () => {
     })
 }
 
-export const loadPanel = (panel:api.ODJsonConfig_DefaultPanelType) => {
+export const loadPanel = (panel:api.ODPanelsJsonConfig_Panel) => {
     return new api.ODPanel(panel.id,[
         new api.ODPanelData("opendiscord:name",panel.name),
         new api.ODPanelData("opendiscord:options",panel.options),

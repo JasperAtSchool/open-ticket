@@ -37,10 +37,11 @@
 //initialize API & check npm libraries
 import { loadDumpCommand, loadAllPlugins, loadErrorHandling } from "@open-discord-bots/framework"
 import * as utilities from "@open-discord-bots/framework/utilities"
-import * as api from "./core/api/api"
-export * as utilities from "@open-discord-bots/framework/utilities"
-export * as api from "./core/api/api"
+import * as api from "./core/api"
 import ansis from "ansis"
+
+export * as utilities from "@open-discord-bots/framework/utilities"
+export * as api from "./core/api"
 
 utilities.checkNodeVersion("openticket")
 
@@ -822,27 +823,27 @@ const main = async () => {
     await opendiscord.events.get("onHelpMenuComponentLoad").emit([opendiscord.helpmenu])
     await opendiscord.events.get("afterHelpMenuComponentsLoaded").emit([opendiscord.helpmenu])
 
-    //load stat scopes
-    opendiscord.log("Loading stats...","system")
-    if (opendiscord.sharedFuses.getFuse("statScopesLoading")){
-        opendiscord.stats.useDatabase(opendiscord.databases.get("opendiscord:stats"))
-        await (await import("./data/framework/statLoader.js")).loadAllStatScopes()
+    //load statistic scopes
+    opendiscord.log("Loading statistics...","system")
+    if (opendiscord.sharedFuses.getFuse("statisticScopesLoading")){
+        opendiscord.statistics.useDatabase(opendiscord.databases.get("opendiscord:stats"))
+        await (await import("./data/framework/statisticLoader.js")).loadAllStatisticScopes()
     }
-    await opendiscord.events.get("onStatScopeLoad").emit([opendiscord.stats])
-    await opendiscord.events.get("afterStatScopesLoaded").emit([opendiscord.stats])
+    await opendiscord.events.get("onStatisticScopeLoad").emit([opendiscord.statistics])
+    await opendiscord.events.get("afterStatisticScopesLoaded").emit([opendiscord.statistics])
 
-    //load stats
-    if (opendiscord.sharedFuses.getFuse("statLoading")){
-        await (await import("./data/framework/statLoader.js")).loadAllStats()
+    //load statistics
+    if (opendiscord.sharedFuses.getFuse("statisticLoading")){
+        await (await import("./data/framework/statisticLoader.js")).loadAllStatistics()
     }
-    await opendiscord.events.get("onStatLoad").emit([opendiscord.stats])
-    await opendiscord.events.get("afterStatsLoaded").emit([opendiscord.stats])
+    await opendiscord.events.get("onStatisticLoad").emit([opendiscord.statistics])
+    await opendiscord.events.get("afterStatisticsLoaded").emit([opendiscord.statistics])
 
-    //init stats
-    await opendiscord.events.get("onStatInit").emit([opendiscord.stats])
-    if (opendiscord.sharedFuses.getFuse("statInitiating")){
-        await opendiscord.stats.init()
-        await opendiscord.events.get("afterStatsInitiated").emit([opendiscord.stats])
+    //init statistics
+    await opendiscord.events.get("onStatisticInit").emit([opendiscord.statistics])
+    if (opendiscord.sharedFuses.getFuse("statisticInitiating")){
+        await opendiscord.statistics.init()
+        await opendiscord.events.get("afterStatisticsInitiated").emit([opendiscord.statistics])
     }
 
     //plugin loading before code

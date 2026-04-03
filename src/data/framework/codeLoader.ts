@@ -402,7 +402,7 @@ const loadAutoCode = () => {
                         await opendiscord.actions.get("opendiscord:close-ticket").run("autoclose",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket,reason:"Autoclose",sendMessage:false})
                         await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:autoclose-message").build("timeout",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket})).message)
                         count++
-                        await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-autoclosed",1,"increase")
+                        await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-autoclosed",1,"increase")
                     }
                 }
             }
@@ -428,7 +428,7 @@ const loadAutoCode = () => {
                         //autoclose ticket
                         await opendiscord.actions.get("opendiscord:close-ticket").run("autoclose",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket,reason:"Autoclose",sendMessage:false})
                         await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:autoclose-message").build("leave",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket})).message)
-                        await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-autoclosed",1,"increase")
+                        await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-autoclosed",1,"increase")
                     }
                 }
             }
@@ -457,7 +457,7 @@ const loadAutoCode = () => {
                         await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:autodelete-message").build("timeout",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket})).message)
                         await opendiscord.actions.get("opendiscord:delete-ticket").run("autodelete",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket,reason:"Autodelete",sendMessage:false,withoutTranscript:false})
                         count++
-                        await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-autodeleted",1,"increase")
+                        await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-autodeleted",1,"increase")
                     }
                 }
             }
@@ -484,7 +484,7 @@ const loadAutoCode = () => {
                         //autodelete ticket
                         await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:autodelete-message").build("leave",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket})).message)
                         await opendiscord.actions.get("opendiscord:delete-ticket").run("autodelete",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket,reason:"Autodelete",sendMessage:false,withoutTranscript:false})
-                        await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-autodeleted",1,"increase")
+                        await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-autodeleted",1,"increase")
                     }
                 }
             }

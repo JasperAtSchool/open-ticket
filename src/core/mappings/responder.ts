@@ -1,0 +1,139 @@
+///////////////////////////////////////
+//OPEN TICKET RESPONDER MAPPINGS
+///////////////////////////////////////
+import * as api from "@open-discord-bots/framework/api"
+
+/**## ODCommandResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODCommandResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODCommandResponderManagerIdMappings extends api.ODCommandResponderManagerIdConstraint {
+    "opendiscord:help":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:help"|"opendiscord:logs"},
+    "opendiscord:stats":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:stats"|"opendiscord:logs"},
+    "opendiscord:panel":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:panel"|"opendiscord:logs"},
+    "opendiscord:ticket":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:ticket"|"opendiscord:logs"},
+    "opendiscord:blacklist":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:blacklist"|"opendiscord:discord-logs"|"opendiscord:logs"},
+    
+    "opendiscord:close":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:close"|"opendiscord:logs"},
+    "opendiscord:reopen":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:reopen"|"opendiscord:logs"},
+    "opendiscord:delete":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:delete"|"opendiscord:logs"},
+    "opendiscord:claim":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:claim"|"opendiscord:logs"},
+    "opendiscord:unclaim":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:unclaim"|"opendiscord:logs"},
+    "opendiscord:pin":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:pin"|"opendiscord:logs"},
+    "opendiscord:unpin":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:unpin"|"opendiscord:logs"},
+
+    "opendiscord:rename":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:rename"|"opendiscord:logs"},
+    "opendiscord:move":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:move"|"opendiscord:logs"},
+    "opendiscord:add":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:add"|"opendiscord:logs"},
+    "opendiscord:remove":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:remove"|"opendiscord:logs"},
+    "opendiscord:clear":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:clear"|"opendiscord:logs"},
+    "opendiscord:topic":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:topic"|"opendiscord:logs"},
+    "opendiscord:priority":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:priority"|"opendiscord:logs"},
+    "opendiscord:transfer":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:transfer"|"opendiscord:logs"},
+
+    "opendiscord:autoclose":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:autoclose"|"opendiscord:logs"},
+    "opendiscord:autodelete":{source:"slash"|"text",params:{},workers:"opendiscord:permissions"|"opendiscord:autodelete"|"opendiscord:logs"},
+}
+
+/**## ODButtonResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODButtonResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODButtonResponderManagerIdMappings extends api.ODButtonResponderManagerIdConstraint {
+    "opendiscord:verifybar-success":{source:"button",params:{},workers:"opendiscord:handle-verifybar"},
+    "opendiscord:verifybar-failure":{source:"button",params:{},workers:"opendiscord:handle-verifybar"},
+
+    "opendiscord:help-menu-switch":{source:"button",params:{},workers:"opendiscord:update-help-menu"},
+    "opendiscord:help-menu-previous":{source:"button",params:{},workers:"opendiscord:update-help-menu"},
+    "opendiscord:help-menu-next":{source:"button",params:{},workers:"opendiscord:update-help-menu"},
+
+    "opendiscord:ticket-option":{source:"button",params:{},workers:"opendiscord:ticket-option"},
+    "opendiscord:role-option":{source:"button",params:{},workers:"opendiscord:role-option"},
+
+    "opendiscord:claim-ticket":{source:"button",params:{},workers:"opendiscord:claim-ticket"},
+    "opendiscord:unclaim-ticket":{source:"button",params:{},workers:"opendiscord:unclaim-ticket"},
+    "opendiscord:pin-ticket":{source:"button",params:{},workers:"opendiscord:pin-ticket"},
+    "opendiscord:unpin-ticket":{source:"button",params:{},workers:"opendiscord:unpin-ticket"},
+    "opendiscord:close-ticket":{source:"button",params:{},workers:"opendiscord:close-ticket"},
+    "opendiscord:reopen-ticket":{source:"button",params:{},workers:"opendiscord:reopen-ticket"},
+    "opendiscord:delete-ticket":{source:"button",params:{},workers:"opendiscord:delete-ticket"},
+
+    "opendiscord:transcript-error-retry":{source:"button",params:{},workers:"opendiscord:permissions"|"opendiscord:delete-ticket"|"opendiscord:logs"},
+    "opendiscord:transcript-error-continue":{source:"button",params:{},workers:"opendiscord:permissions"|"opendiscord:delete-ticket"|"opendiscord:logs"},
+    "opendiscord:clear-continue":{source:"button",params:{},workers:"opendiscord:clear-continue"},
+}
+
+/**## ODDropdownResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODDropdownResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODDropdownResponderManagerIdMappings extends api.ODDropdownResponderManagerIdConstraint {
+    "opendiscord:panel-dropdown-tickets":{source:"dropdown",params:{},workers:"opendiscord:panel-dropdown-tickets"},
+}
+
+/**## ODModalResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODModalResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODModalResponderManagerIdMappings extends api.ODModalResponderManagerIdConstraint {
+    "opendiscord:ticket-questions":{source:"modal",params:{},workers:"opendiscord:ticket-questions"},
+    "opendiscord:close-ticket-reason":{source:"modal",params:{},workers:"opendiscord:close-ticket-reason"},
+    "opendiscord:reopen-ticket-reason":{source:"modal",params:{},workers:"opendiscord:reopen-ticket-reason"},
+    "opendiscord:delete-ticket-reason":{source:"modal",params:{},workers:"opendiscord:delete-ticket-reason"},
+    "opendiscord:claim-ticket-reason":{source:"modal",params:{},workers:"opendiscord:claim-ticket-reason"},
+    "opendiscord:unclaim-ticket-reason":{source:"modal",params:{},workers:"opendiscord:unclaim-ticket-reason"},
+    "opendiscord:pin-ticket-reason":{source:"modal",params:{},workers:"opendiscord:pin-ticket-reason"},
+    "opendiscord:unpin-ticket-reason":{source:"modal",params:{},workers:"opendiscord:unpin-ticket-reason"},
+}
+
+/**## ODContextMenuResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODContextMenuResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODContextMenuResponderManagerIdMappings extends api.ODContextMenuResponderManagerIdConstraint {
+    //"opendiscord:example":{source:"context-menu",params:{},workers:"opendiscord:example"},
+}
+
+/**## ODAutocompleteResponderManagerIdMappings `interface`
+ * A list of all available IDs in the default `ODAutocompleteResponderManager` class in `opendiscord`.
+ * It's used to generate typescript declarations for this class.
+ */
+export interface ODAutocompleteResponderManagerIdMappings extends api.ODAutocompleteResponderManagerIdConstraint {
+    "opendiscord:panel-id":{source:"autocomplete",params:{},workers:"opendiscord:panel-id"},
+    "opendiscord:option-id":{source:"autocomplete",params:{},workers:"opendiscord:option-id"}
+}
+
+/**## ODMappedCommandResponderManager `class
+ * A special class with types for the Open Ticket `ODCommandResponderManager` class.
+ */
+export class ODMappedCommandResponderManager extends api.ODCommandResponderManager<ODCommandResponderManagerIdMappings> {}
+
+/**## ODMappedButtonResponderManager `class
+ * A special class with types for the Open Ticket `ODButtonResponderManager` class.
+ */
+export class ODMappedButtonResponderManager extends api.ODButtonResponderManager<ODButtonResponderManagerIdMappings> {}
+
+/**## ODMappedDropdownResponderManager `class
+ * A special class with types for the Open Ticket `ODDropdownResponderManager` class.
+ */
+export class ODMappedDropdownResponderManager extends api.ODDropdownResponderManager<ODDropdownResponderManagerIdMappings> {}
+
+/**## ODMappedModalResponderManager `class
+ * A special class with types for the Open Ticket `ODModalResponderManager` class.
+ */
+export class ODMappedModalResponderManager extends api.ODModalResponderManager<ODModalResponderManagerIdMappings> {}
+
+/**## ODMappedContextMenuResponderManager `class
+ * A special class with types for the Open Ticket `ODContextMenuResponderManager` class.
+ */
+export class ODMappedContextMenuResponderManager extends api.ODContextMenuResponderManager<ODContextMenuResponderManagerIdMappings> {}
+
+/**## ODMappedAutocompleteResponderManager `class
+ * A special class with types for the Open Ticket `ODAutocompleteResponderManager` class.
+ */
+export class ODMappedAutocompleteResponderManager extends api.ODAutocompleteResponderManager<ODAutocompleteResponderManagerIdMappings> {}
+
+/**## ODMappedResponderManager `class
+ * A special class with types for the Open Ticket `ODResponderManager` class.
+ */
+export class ODMappedResponderManager extends api.ODResponderManager<ODCommandResponderManagerIdMappings,ODButtonResponderManagerIdMappings,ODDropdownResponderManagerIdMappings,ODModalResponderManagerIdMappings,ODContextMenuResponderManagerIdMappings,ODAutocompleteResponderManagerIdMappings> {}

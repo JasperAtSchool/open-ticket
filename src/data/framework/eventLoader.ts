@@ -1,7 +1,7 @@
 import {opendiscord, api, utilities} from "../../index"
 
 export const loadAllEvents = () => {
-    const eventList: (keyof api.ODEventIds_Default)[] = [
+    const eventList: (keyof api.ODNoGeneric<api.ODEventManagerIdMappings>)[] = [
         //error handling
         "onErrorHandling",
         "afterErrorHandling",
@@ -258,13 +258,13 @@ export const loadAllEvents = () => {
         "onHelpMenuComponentLoad",
         "afterHelpMenuComponentsLoaded",
 
-        //stats
-        "onStatScopeLoad",
-        "afterStatScopesLoaded",
-        "onStatLoad",
-        "afterStatsLoaded",
-        "onStatInit",
-        "afterStatsInitiated",
+        //statistics
+        "onStatisticScopeLoad",
+        "afterStatisticScopesLoaded",
+        "onStatisticLoad",
+        "afterStatisticsLoaded",
+        "onStatisticInit",
+        "afterStatisticsInitiated",
 
         //plugin loading before code
         "onPluginBeforeCodeLoad",

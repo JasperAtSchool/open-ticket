@@ -184,8 +184,8 @@ export const registerActions = async () => {
             ])
 
             //manage stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-created",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:tickets-created",user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-created",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:tickets-created",user.id,1,"increase")
 
             //manage bot permissions
             await opendiscord.events.get("onTicketPermissionsCreated").emit([option,opendiscord.permissions,channel,user])
@@ -215,7 +215,7 @@ export const registerActions = async () => {
                 if (generalConfig.data.system.pinFirstTicketMessage && msg.pinnable) await msg.pin("Ticket Message")
                 
                 //manage stats
-                await opendiscord.stats.get("opendiscord:ticket").setStat("opendiscord:messages-sent",ticket.id.value,1,"increase")
+                await opendiscord.statistics.get("opendiscord:ticket").setStat("opendiscord:messages-sent",ticket.id.value,1,"increase")
                 
                 await opendiscord.events.get("afterTicketMainMessageCreated").emit([ticket,msg,channel,user])
         }catch(err){

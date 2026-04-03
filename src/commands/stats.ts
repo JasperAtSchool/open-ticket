@@ -106,7 +106,7 @@ export const registerCommandResponders = async () => {
 
             }else if (scope == "reset"){
                 const reason = instance.options.getString("reason",false)
-                opendiscord.stats.reset()
+                opendiscord.statistics.reset()
                 await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:stats-reset").build(source,{guild,channel,user,reason}))
 
             }

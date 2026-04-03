@@ -45,7 +45,7 @@ export const loadAllConfigCheckerTranslations = async () => {
 }
 
 //GLOBAL FUNCTIONS
-export const registerDefaultCheckerSystemTranslations = (tm:api.ODCheckerTranslationRegister_Default,lm:api.ODLanguageManager_Default) => {
+export const registerDefaultCheckerSystemTranslations = (tm:api.ODMappedCheckerTranslationRegister,lm:api.ODMappedLanguageManager) => {
     //SYSTEM
     //tm.quickTranslate(lm,"checker.system.headerOpenTicket","other","opendiscord:header-openticket") //OPEN TICKET (ignore)
     tm.quickTranslate(lm,"checker.system.typeError","other","opendiscord:type-error") // [ERROR] (ignore)
@@ -62,7 +62,7 @@ export const registerDefaultCheckerSystemTranslations = (tm:api.ODCheckerTransla
     tm.quickTranslate(lm,"checker.system.dataMessages","other","opendiscord:data-message") // message
 }
 
-export const registerDefaultCheckerMessageTranslations = (tm:api.ODCheckerTranslationRegister_Default,lm:api.ODLanguageManager_Default) => {
+export const registerDefaultCheckerMessageTranslations = (tm:api.ODMappedCheckerTranslationRegister,lm:api.ODMappedLanguageManager) => {
     //STRUCTURES
     tm.quickTranslate(lm,"checker.messages.invalidType","message","opendiscord:invalid-type") // This property needs to be the type: {0}!
     tm.quickTranslate(lm,"checker.messages.propertyMissing","message","opendiscord:property-missing") // The property {0} is missing from this object!
@@ -137,7 +137,7 @@ export const registerDefaultCheckerMessageTranslations = (tm:api.ODCheckerTransl
     tm.quickTranslate(lm,"checker.messages.idNonExistent","message","opendiscord:id-non-existent") // The id {0} doesn't exist!
 }
 
-export const registerDefaultCheckerCustomTranslations = (tm:api.ODCheckerTranslationRegister_Default,lm:api.ODLanguageManager_Default) => {
+export const registerDefaultCheckerCustomTranslations = (tm:api.ODMappedCheckerTranslationRegister,lm:api.ODMappedLanguageManager) => {
     //CUSTOM
     tm.quickTranslate(lm,"checker.messages.invalidLanguage","message","opendiscord:invalid-language") // This is an invalid language!
     tm.quickTranslate(lm,"checker.messages.invalidButton","message","opendiscord:invalid-button") // This button needs to have at least an {0} or {1}!

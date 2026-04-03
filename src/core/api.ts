@@ -1,0 +1,41 @@
+//EXPORT FRAMEWORK
+export * from "@open-discord-bots/framework/api"
+
+//EXPORT OPEN TICKET MAPPINGS
+export * from "./mappings/action"
+export * from "./mappings/base"
+export * from "./mappings/builder"
+export * from "./mappings/checker"
+export * from "./mappings/client"
+export * from "./mappings/code"
+export * from "./mappings/config"
+export * from "./mappings/console"
+export * from "./mappings/cooldown"
+export * from "./mappings/database"
+export * from "./mappings/event"
+export * from "./mappings/flag"
+export * from "./mappings/fuse"
+export * from "./mappings/helpmenu"
+export * from "./mappings/language"
+export * from "./mappings/permission"
+export * from "./mappings/plugin"
+export * from "./mappings/post"
+export * from "./mappings/progressbar"
+export * from "./mappings/responder"
+export * from "./mappings/session"
+export * from "./mappings/startscreen"
+export * from "./mappings/statistic"
+export * from "./mappings/verifybar"
+
+//EXPORT OPENTICKET MODULES
+export * from "./api/blacklist"
+export * from "./api/option"
+export * from "./api/panel"
+export * from "./api/priority"
+export * from "./api/question"
+export * from "./api/role"
+export * from "./api/ticket"
+export * from "./api/transcript"
+
+//EXPORT MAIN MODULE
+export { ODOpenTicketMain } from "./main"

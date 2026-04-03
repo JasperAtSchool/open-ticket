@@ -22,8 +22,8 @@ export const registerActions = async () => {
             ticket.get("opendiscord:busy").value = true
             
             //update stats
-            await opendiscord.stats.get("opendiscord:global").setStat("opendiscord:tickets-pinned",1,"increase")
-            await opendiscord.stats.get("opendiscord:user").setStat("opendiscord:tickets-pinned",user.id,1,"increase")
+            await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-pinned",1,"increase")
+            await opendiscord.statistics.get("opendiscord:user").setStat("opendiscord:tickets-pinned",user.id,1,"increase")
 
             //move to top of category
             if (channel.parent){
