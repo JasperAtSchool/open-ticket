@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //OPEN TICKET MAIN MODULE
 ///////////////////////////////////////
-import * as api from "./api"
+import * as api from "./api.js"
 import * as utilities from "@open-discord-bots/framework/utilities"
 
 export class ODOpenTicketMain extends api.ODMain {

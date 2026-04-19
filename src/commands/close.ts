@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //CLOSE COMMAND
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 
 const generalConfig = opendiscord.configs.get("opendiscord:general")
@@ -82,7 +82,7 @@ export const registerButtonResponders = async () => {
     opendiscord.responders.buttons.add(new api.ODButtonResponder("opendiscord:close-ticket",/^od:close-ticket_/))
     opendiscord.responders.buttons.get("opendiscord:close-ticket").workers.add(
         new api.ODWorker("opendiscord:close-ticket",0,async (instance,params,source,cancel) => {
-            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIdMappings["opendiscord:close-ticket"]["source"],"slash"|"text"|"autoclose">
+            const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIdMappings["opendiscord:close-ticket"]["origin"],"slash"|"text"|"autoclose">
             
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:close-ticket-ticket-message").activate(instance)
             else if (originalSource == "reopen-message") await opendiscord.verifybars.get("opendiscord:close-ticket-reopen-message").activate(instance)
@@ -109,7 +109,7 @@ export const registerModalResponders = async () => {
                 return
             }
 
-            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIdMappings["opendiscord:close-ticket"]["source"],"slash"|"text"|"autoclose">
+            const originalSource = instance.interaction.customId.split("_")[2] as Exclude<api.ODActionManagerIdMappings["opendiscord:close-ticket"]["origin"],"slash"|"text"|"autoclose">
             const reason = instance.values.getTextField("reason",true)
 
             //close with reason

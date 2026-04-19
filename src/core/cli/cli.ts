@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 import * as cli from "@open-discord-bots/framework/cli"
 
 export const logo = [

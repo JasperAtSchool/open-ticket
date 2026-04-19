@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //REACTION ROLE SYSTEM
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 
 const generalConfig = opendiscord.configs.get("opendiscord:general")

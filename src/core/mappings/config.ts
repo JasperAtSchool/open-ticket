@@ -3,7 +3,7 @@
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
 import * as discord from "discord.js"
-import { ODRoleUpdateMode } from "../api/role"
+import { ODRoleUpdateMode } from "../api/role.js"
 
 /** (CONTRIBUTOR GUIDE) HOW TO ADD NEW CONFIG VARIABLES?
  * - Make the change to the config file in (./config/) and be aware of the following things:

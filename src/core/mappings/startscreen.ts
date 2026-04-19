@@ -2,7 +2,7 @@
 //OPEN TICKET STARTSCREEN MAPPINGS
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
-import { ODLiveStatusManagerIdMappings } from "./console"
+import { ODLiveStatusManagerIdMappings } from "./console.js"
 
 /**## ODStartScreenManagerIdMappings `interface`
  * A list of all available IDs in the default `ODStartScreenManager` class in `opendiscord`.

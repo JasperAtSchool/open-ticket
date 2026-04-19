@@ -2,7 +2,7 @@
 //OPENTICKET PANEL MODULE
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
-import { ODPanelsJsonConfig_PanelEmbedSettings } from "../mappings/config"
+import { ODPanelsJsonConfig_PanelEmbedSettings } from "../mappings/config.js"
 
 /**## ODPanelManager `class`
  * This is an Open Ticket panel manager.

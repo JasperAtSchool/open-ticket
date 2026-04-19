@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //VERIFYBAR SYSTEM
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 
 export const registerButtonResponders = async () => {
     //VERIFYBAR SUCCESS

@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 
 export const loadAllFlags = async () => {
     opendiscord.flags.add(new api.ODFlag("opendiscord:no-migration","No Migration","Disable Open Ticket data migration on update!","--no-migration",["-nm"]))

@@ -37,11 +37,11 @@
 //initialize API & check npm libraries
 import { loadDumpCommand, loadAllPlugins, loadErrorHandling } from "@open-discord-bots/framework"
 import * as utilities from "@open-discord-bots/framework/utilities"
-import * as api from "./core/api"
+import * as api from "./core/api.js"
 import ansis from "ansis"
 
 export * as utilities from "@open-discord-bots/framework/utilities"
-export * as api from "./core/api"
+export * as api from "./core/api.js"
 
 utilities.checkNodeVersion("openticket")
 

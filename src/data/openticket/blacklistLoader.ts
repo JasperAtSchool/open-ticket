@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 
 export const loadAllBlacklistedUsers = async () => {
     const userDatabase = opendiscord.databases.get("opendiscord:users")

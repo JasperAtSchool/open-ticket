@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //DROPDOWN BUILDERS
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 
 const dropdowns = opendiscord.builders.dropdowns

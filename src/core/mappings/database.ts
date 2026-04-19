@@ -2,8 +2,8 @@
 //OPEN TICKET DATABASE MAPPINGS
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
-import { ODTicketJson } from "../api/ticket"
-import { ODOptionJson } from "../api/option"
+import { ODTicketJson } from "../api/ticket.js"
+import { ODOptionJson } from "../api/option.js"
 
 /**## ODDatabaseManagerIdMappings `interface`
  * A list of all available IDs in the default `ODDatabaseManager` class in `opendiscord`.

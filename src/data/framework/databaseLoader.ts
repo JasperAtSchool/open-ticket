@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 import * as fjs from "formatted-json-stringify"
 
 const devdatabaseFlag = opendiscord.flags.get("opendiscord:dev-database")

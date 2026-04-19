@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //EMBED BUILDERS
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 import nodepath from "path"
 

@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 
 export const loadAllCooldowns = async () => {
     await opendiscord.options.loopAll((option) => {

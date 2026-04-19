@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 
 export const loadAllEvents = () => {
     const eventList: (keyof api.ODNoGeneric<api.ODEventManagerIdMappings>)[] = [

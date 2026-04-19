@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //CLEAR COMMAND
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 
 const generalConfig = opendiscord.configs.get("opendiscord:general")
@@ -68,7 +68,7 @@ export const registerButtonResponders = async () => {
         new api.ODWorker("opendiscord:clear-continue",0,async (instance,params,source,cancel) => {
             const {guild,channel,user} = instance
             if (!guild || channel.isDMBased()) return
-            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:clear-tickets"]["source"]
+            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:clear-tickets"]["origin"]
             const filter = instance.interaction.customId.split("_")[2] as api.ODTicketClearFilter
             
             //start ticket clear

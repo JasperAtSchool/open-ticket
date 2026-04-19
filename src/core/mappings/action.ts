@@ -3,11 +3,11 @@
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
 import * as discord from "discord.js"
-import { ODRoleOption, ODTicketOption } from "../api/option"
-import { ODTicket, ODTicketClearFilter } from "../api/ticket"
-import { ODTranscriptCompiler, ODTranscriptCompilerCompileResult } from "../api/transcript"
-import { ODRole, ODRoleUpdateMode, ODRoleUpdateResult } from "../api/role"
-import { ODPriorityLevel } from "../api/priority"
+import { ODRoleOption, ODTicketOption } from "../api/option.js"
+import { ODTicket, ODTicketClearFilter } from "../api/ticket.js"
+import { ODTranscriptCompiler, ODTranscriptCompilerCompileResult } from "../api/transcript.js"
+import { ODRole, ODRoleUpdateMode, ODRoleUpdateResult } from "../api/role.js"
+import { ODPriorityLevel } from "../api/priority.js"
 
 /**## ODActionManagerIdMappings `interface`
  * A list of all available IDs in the default `ODActionManager` class in `opendiscord`.
@@ -15,129 +15,120 @@ import { ODPriorityLevel } from "../api/priority"
  */
 export interface ODActionManagerIdMappings extends api.ODActionManagerIdConstraint {
     "opendiscord:create-ticket-permissions":{
-        source:"panel-button"|"panel-dropdown"|"slash"|"text"|"other",
+        origin:"panel-button"|"panel-dropdown"|"slash"|"text"|"other",
         params:{guild:discord.Guild,user:discord.User,option:ODTicketOption},
         result:{valid:boolean,reason:"blacklist"|"cooldown"|"global-limit"|"global-user-limit"|"option-limit"|"option-user-limit"|"custom"|null,cooldownUntil?:Date,customReason?:string},
         workers:"opendiscord:check-blacklist"|"opendiscord:check-cooldown"|"opendiscord:check-global-limits"|"opendiscord:check-option-limits"|"opendiscord:valid"
     },
     "opendiscord:create-transcript":{
-        source:"slash"|"text"|"ticket-message"|"reopen-message"|"close-message"|"autoclose-message"|"autodelete"|"clear"|"other",
+        origin:"slash"|"text"|"ticket-message"|"reopen-message"|"close-message"|"autoclose-message"|"autodelete"|"clear"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket},
         result:{compiler:ODTranscriptCompiler<any,object|null>, success:boolean, result:ODTranscriptCompilerCompileResult<any>, errorReason:string|null, pendingMessage:api.ODMessageBuildSentResult<true>|null, initData:object|null, participants:{user:discord.User,role:"creator"|"participant"|"admin"}[]},
         workers:"opendiscord:select-compiler"|"opendiscord:init-transcript"|"opendiscord:compile-transcript"|"opendiscord:ready-transcript"|"opendiscord:logs"
     },
     "opendiscord:create-ticket":{
-        source:"panel-button"|"panel-dropdown"|"slash"|"text"|"other",
+        origin:"panel-button"|"panel-dropdown"|"slash"|"text"|"other",
         params:{guild:discord.Guild,user:discord.User,option:ODTicketOption,answers:{id:string,name:string,type:"short"|"paragraph",value:string|null}[]},
         result:{channel:discord.GuildTextBasedChannel,ticket:ODTicket},
         workers:"opendiscord:create-ticket"|"opendiscord:send-ticket-message"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:close-ticket":{
-        source:"slash"|"text"|"ticket-message"|"reopen-message"|"autoclose"|"other",
+        origin:"slash"|"text"|"ticket-message"|"reopen-message"|"autoclose"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,allowCategoryChange?:boolean},
         result:{},
         workers:"opendiscord:close-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:delete-ticket":{
-        source:"slash"|"text"|"ticket-message"|"reopen-message"|"close-message"|"autoclose-message"|"autodelete"|"clear"|"other",
+        origin:"slash"|"text"|"ticket-message"|"reopen-message"|"close-message"|"autoclose-message"|"autodelete"|"clear"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,withoutTranscript:boolean},
         result:{},
         workers:"opendiscord:delete-ticket"|"opendiscord:discord-logs"|"opendiscord:delete-channel"|"opendiscord:logs"
     },
     "opendiscord:reopen-ticket":{
-        source:"slash"|"text"|"ticket-message"|"close-message"|"autoclose-message"|"other",
+        origin:"slash"|"text"|"ticket-message"|"close-message"|"autoclose-message"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,allowCategoryChange?:boolean},
         result:{},
         workers:"opendiscord:reopen-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:claim-ticket":{
-        source:"slash"|"text"|"ticket-message"|"unclaim-message"|"other",
+        origin:"slash"|"text"|"ticket-message"|"unclaim-message"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,allowCategoryChange?:boolean},
         result:{},
         workers:"opendiscord:claim-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:unclaim-ticket":{
-        source:"slash"|"text"|"ticket-message"|"claim-message"|"other",
+        origin:"slash"|"text"|"ticket-message"|"claim-message"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,allowCategoryChange?:boolean},
         result:{},
         workers:"opendiscord:unclaim-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:pin-ticket":{
-        source:"slash"|"text"|"ticket-message"|"unpin-message"|"other",
+        origin:"slash"|"text"|"ticket-message"|"unpin-message"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean},
         result:{},
         workers:"opendiscord:pin-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:unpin-ticket":{
-        source:"slash"|"text"|"ticket-message"|"pin-message"|"other",
+        origin:"slash"|"text"|"ticket-message"|"pin-message"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean},
         result:{},
         workers:"opendiscord:unpin-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:rename-ticket":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,data:string},
         result:{},
         workers:"opendiscord:rename-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:move-ticket":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,data:ODTicketOption},
         result:{},
         workers:"opendiscord:move-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:add-ticket-user":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,data:discord.User},
         result:{},
         workers:"opendiscord:add-ticket-user"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:remove-ticket-user":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,reason:string|null,sendMessage:boolean,data:discord.User},
         result:{},
         workers:"opendiscord:remove-ticket-user"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:reaction-role":{
-        source:"panel-button"|"other",
+        origin:"panel-button"|"other",
         params:{guild:discord.Guild,user:discord.User,option:ODRoleOption,overwriteMode:ODRoleUpdateMode|null},
         result:{result:ODRoleUpdateResult[],role:ODRole},
         workers:"opendiscord:reaction-role"|"opendiscord:logs"
     },
     "opendiscord:clear-tickets":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,filter:ODTicketClearFilter,list:ODTicket[]},
         result:{list:string[]},
         workers:"opendiscord:clear-tickets"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:update-ticket-topic":{
-        source:"slash"|"text"|"ticket-action"|"other",
+        origin:"slash"|"text"|"ticket-action"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,newTopic:string|null,sendMessage:boolean},
         result:{},
         workers:"opendiscord:update-ticket-topic"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:update-ticket-priority":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,newPriority:ODPriorityLevel,reason:string|null,sendMessage:boolean},
         result:{},
         workers:"opendiscord:update-ticket-priority"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
     "opendiscord:transfer-ticket":{
-        source:"slash"|"text"|"other",
+        origin:"slash"|"text"|"other",
         params:{guild:discord.Guild,channel:discord.GuildTextBasedChannel,user:discord.User,ticket:ODTicket,newCreator:discord.User,reason:string|null,sendMessage:boolean},
         result:{},
         workers:"opendiscord:transfer-ticket"|"opendiscord:discord-logs"|"opendiscord:logs"
     },
 }
-
-type ODNoGeneric<T extends Record<string|number|symbol,any>> = {  
-    [K in keyof T as string extends K ? never : number extends K ? never : symbol extends K ? never : K]: T[K]
-}
-export type ODActionManagerMappingsModifier<T extends api.ODActionManagerIdConstraint = ODActionManagerIdMappings> = {
-    [K in keyof T]: api.ODAction<T[K]["source"],T[K]["params"],T[K]["result"],T[K]["workers"]>
-}
-
-type test = ODActionManagerMappingsModifier
 
 /**## ODMappedActionManager `class
  * A special class with types for the Open Ticket `ODActionManager` class.

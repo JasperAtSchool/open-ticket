@@ -2,7 +2,7 @@
 //OPENTICKET TRANSCRIPT MODULE
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
-import { ODTicket, ODTicketManager } from "./ticket"
+import { ODTicket, ODTicketManager } from "./ticket.js"
 import * as discord from "discord.js"
 
 /**## ODTranscriptManagerIdConstraint `type`

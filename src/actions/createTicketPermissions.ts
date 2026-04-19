@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //TICKET CREATION SYSTEM
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 import * as discord from "discord.js"
 
 export const registerActions = async () => {

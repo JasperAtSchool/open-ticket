@@ -4,8 +4,8 @@
 import * as api from "@open-discord-bots/framework/api"
 import * as discord from "discord.js"
 import * as crypto from "crypto"
-import { ODOptionsJsonConfig_TicketOptionEmbedSettings, ODOptionsJsonConfig_TicketOptionPingSettings } from "../mappings/config"
-import { ODRoleUpdateMode } from "./role"
+import { ODOptionsJsonConfig_TicketOptionEmbedSettings, ODOptionsJsonConfig_TicketOptionPingSettings } from "../mappings/config.js"
+import { ODRoleUpdateMode } from "./role.js"
 
 /**## ODOptionManager `class`
  * This is an Open Ticket option manager.

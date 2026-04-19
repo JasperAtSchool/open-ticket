@@ -22,11 +22,11 @@
         "docs": "npx typedoc --options .tools/typedoc-config.json && node .tools/createDocs.js",
         "mergelang": "node .tools/mergeTranslations.js"
     },
-    "type": "commonjs",
+    "type": "module",
     "license": "GPL-3.0-only",
     "dependencies": {
         "@discordjs/rest": "^2.6.1",
-        "@open-discord-bots/framework": "^0.2.11",
+        "@open-discord-bots/framework": "^0.2.15",
         "@types/node": "^22.5.0",
         "@types/terminal-kit": "^2.5.7",
         "ansis": "^4.2.0",

@@ -1,7 +1,7 @@
 ///////////////////////////////////////
 //TRANSCRIPT ERROR SYSTEM
 ///////////////////////////////////////
-import {opendiscord, api, utilities} from "../index"
+import {opendiscord, api, utilities} from "../index.js"
 
 const generalConfig = opendiscord.configs.get("opendiscord:general")
 
@@ -11,7 +11,7 @@ export const registerButtonResponders = async () => {
     opendiscord.responders.buttons.get("opendiscord:transcript-error-retry").workers.add([
         new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
             const {guild,channel,user,member} = instance
-            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"]
+            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["origin"]
             
             //check permissions
             const permsResult = await opendiscord.permissions.checkCommandPerms(generalConfig.data.system.permissions.delete,"support",user,member,channel,guild)
@@ -99,7 +99,7 @@ export const registerButtonResponders = async () => {
         }),
         new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
             const {guild,channel,user} = instance
-            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["source"]
+            const originalSource = instance.interaction.customId.split("_")[1] as api.ODActionManagerIdMappings["opendiscord:delete-ticket"]["origin"]
             
             if (!guild){
                 instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-not-in-guild").build("button",{channel,user}))

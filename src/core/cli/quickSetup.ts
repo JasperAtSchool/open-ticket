@@ -1,9 +1,9 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 import * as cli from "@open-discord-bots/framework/cli"
 import {Terminal, terminal} from "terminal-kit"
 import ansis from "ansis"
 import * as discord from "discord.js"
-import { headerOpts } from "./cli"
+import { headerOpts } from "./cli.js"
 
 interface ODQuickSetupVariables {
     client?:api.ODClientManager,

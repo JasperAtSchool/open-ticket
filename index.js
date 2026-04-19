@@ -25,7 +25,7 @@ const flags = [
 ////////// COMPILATION + STARTUP //////////
 ///////////////////////////////////////////
 
-const framework = require("@open-discord-bots/framework")
-framework.frameworkStartup(flags,"openticket",() => {
-    require("./dist/src/index.js")
+import { frameworkStartup } from "@open-discord-bots/framework"
+frameworkStartup(flags,"openticket",async () => {
+    await import("./dist/src/index.js")
 })

@@ -2,7 +2,7 @@
 //OPENTICKET TICKET MODULE
 ///////////////////////////////////////
 import * as api from "@open-discord-bots/framework/api"
-import { ODTicketOption } from "./option"
+import { ODTicketOption } from "./option.js"
 import * as discord from "discord.js"
 
 /**## ODTicketManager `class`

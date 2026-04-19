@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 import fs from "fs"
 
 /**Check if migration is required. Returns the last version used in the database. */

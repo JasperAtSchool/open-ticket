@@ -1,4 +1,4 @@
-import {opendiscord, api, utilities} from "../../index"
+import {opendiscord, api, utilities} from "../../index.js"
 
 /** (CONTRIBUTOR GUIDE) HOW TO ADD NEW LANGUAGES?
  * - Add the file to (./languages/) and make sure the metadata is valid.
