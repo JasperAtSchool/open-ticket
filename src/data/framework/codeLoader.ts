@@ -483,9 +483,6 @@ const loadAutoCode = () => {
                     if (enabled){
                         //autodelete ticket
                         await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:autodelete-message").build("leave",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket})).message)
-
-                        const idk: Omit<discord.MessageCreateOptions,"flags"> = {}
-                        await channel.send(idk)
                         await opendiscord.actions.get("opendiscord:delete-ticket").run("autodelete",{guild:channel.guild,channel,user:opendiscord.client.client.user,ticket,reason:"Autodelete",sendMessage:false,withoutTranscript:false})
                         await opendiscord.statistics.get("opendiscord:global").setStat("opendiscord:tickets-autodeleted",1,"increase")
                     }
